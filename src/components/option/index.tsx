@@ -1,5 +1,4 @@
-import { useEffect } from "react"
-import { Pressable, PressableProps, Text } from "react-native"
+import { Pressable, PressableProps } from "react-native"
 import Animated, {
   useSharedValue,
   useAnimatedStyle,
@@ -35,9 +34,7 @@ export function Option({ title, icon, isSelected, ...rest }: Props) {
     opacity: animationStatus.value,
   }))
 
-  useEffect(() => {
-    animationStatus.value = withTiming(isSelected ? 1 : 0)
-  }, [isSelected])
+  animationStatus.value = withTiming(isSelected ? 1 : 0)
 
   return (
     <AnimatedPressable
